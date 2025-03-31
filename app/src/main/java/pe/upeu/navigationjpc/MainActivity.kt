@@ -28,28 +28,30 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-                val themeType = remember { mutableStateOf(ThemeType.BLUE) }
-                val darkthemex = isNight()
-                val darktheme = remember { mutableStateOf(darkthemex) }
-                contexto.CONTEXTO_APPX=this
-                val colorScheme=when(themeType.value){
-                    ThemeType.RED -> { if (darktheme.value) DarkColorScheme else LightColorScheme}
-                    ThemeType.BLUE -> { if (darktheme.value) sBluedarkScheme else sBluelightScheme}
-
+            val themeType = remember { mutableStateOf(ThemeType.BLUE) }
+            val darkthemex = isNight()
+            val darktheme = remember { mutableStateOf(darkthemex) }
+            contexto.CONTEXTO_APPX = this
+            val colorScheme = when (themeType.value) {
+                ThemeType.RED -> {
+                    if (darktheme.value) DarkColorScheme else LightColorScheme
                 }
 
-                NavigationJPCTheme (colorScheme = colorScheme) {
-                    MyAppDrawer(darkMode =  darktheme, themeType = themeType)
+                ThemeType.BLUE -> {
+                    if (darktheme.value) sBluedarkScheme else sBluelightScheme
                 }
 
-                MyAppDrawer(darkMode =  darktheme, themeType = themeType)
+            }
+
+            NavigationJPCTheme(colorScheme = colorScheme) {
+                MyAppDrawer(darkMode = darktheme, themeType = themeType)
                 /*Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }*/
-
+            }
         }
     }
 }
@@ -65,7 +67,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    NavigationJPCTheme (colorScheme = sBluedarkScheme){
+    NavigationJPCTheme(colorScheme = sBluelightScheme) {
         Greeting("Android")
     }
 }
