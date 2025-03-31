@@ -14,8 +14,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import pe.upeu.navigationjpc.ui.presentation.component.MyAppDrawer
+import pe.upeu.navigationjpc.ui.theme.DarkColorScheme
+import pe.upeu.navigationjpc.ui.theme.LightColorScheme
 import pe.upeu.navigationjpc.ui.theme.NavigationJPCTheme
 import pe.upeu.navigationjpc.ui.theme.ThemeType
+import pe.upeu.navigationjpc.ui.theme.sBluedarkScheme
+import pe.upeu.navigationjpc.ui.theme.sBluelightScheme
+import pe.upeu.navigationjpc.utils.contexto
 import pe.upeu.navigationjpc.utils.isNight
 
 class MainActivity : ComponentActivity() {
@@ -23,10 +28,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            NavigationJPCTheme {
-                val themeType = remember { mutableStateOf(ThemeType.RED) }
+                val themeType = remember { mutableStateOf(ThemeType.BLUE) }
                 val darkthemex = isNight()
                 val darktheme = remember { mutableStateOf(darkthemex) }
+                contexto.CONTEXTO_APPX=this
+                val colorScheme=when(themeType.value){
+                    ThemeType.RED -> { if (darktheme.value) DarkColorScheme else LightColorScheme}
+                    ThemeType.BLUE -> { if (darktheme.value) sBluedarkScheme else sBluelightScheme}
+
+                }
+
+                NavigationJPCTheme (colorScheme = sBluedarkScheme) {
+                    MyAppDrawer(darkMode =  darktheme, themeType = themeType)
+                }
+
                 MyAppDrawer(darkMode =  darktheme, themeType = themeType)
                 /*Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
@@ -34,7 +49,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding)
                     )
                 }*/
-            }
+
         }
     }
 }
@@ -50,7 +65,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    NavigationJPCTheme {
+    NavigationJPCTheme (colorScheme = sBluedarkScheme){
         Greeting("Android")
     }
 }
