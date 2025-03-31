@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 
                 }
 
-                NavigationJPCTheme (colorScheme = sBluedarkScheme) {
+                NavigationJPCTheme (colorScheme = colorScheme) {
                     MyAppDrawer(darkMode =  darktheme, themeType = themeType)
                 }
 
