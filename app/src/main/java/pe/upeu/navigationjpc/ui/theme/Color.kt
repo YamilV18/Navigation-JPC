@@ -82,3 +82,6 @@ val blue_surfaceContainerLowDark = Color(0xFF191C20)
 val blue_surfaceContainerDark = Color(0xFF1D2024)
 val blue_surfaceContainerHighDark = Color(0xFF282A2F)
 val blue_surfaceContainerHighestDark = Color(0xFF33353A)
+
+val textColor=Color(0xFFFFFFFF)
+val Purple200=Color(0xFFFFFFFF)
