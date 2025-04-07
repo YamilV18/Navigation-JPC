@@ -49,6 +49,13 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation("com.google.accompanist:accompanist-permissions:0.31.2-alpha")
+    implementation("com.google.mlkit:barcode-scanning:17.2.0")
+    implementation("androidx.camera:camera-core:1.2.0")
+    implementation ("androidx.camera:camera-camera2:1.0.0-rc01")
+    implementation ("androidx.camera:camera-lifecycle:1.0.0-rc01")
+    implementation ("androidx.camera:camera-view:1.0.0-alpha20")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
