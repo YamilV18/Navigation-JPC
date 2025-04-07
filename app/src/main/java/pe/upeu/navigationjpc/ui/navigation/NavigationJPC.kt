@@ -13,6 +13,6 @@ fun NavigationHost(navController: NavHostController) {
     NavHost(navController, startDestination = "home") {
         composable("home") { HomeScreen() }
         composable("profile") { ProfileScreen() }
-        composable("settings") { SettingsScreen() }
+        composable("settings") { SettingsScreen() } //Aqui poner la calculadora y el qr
     }
 }
