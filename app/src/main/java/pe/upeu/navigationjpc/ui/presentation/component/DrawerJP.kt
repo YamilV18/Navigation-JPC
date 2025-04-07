@@ -54,7 +54,8 @@ fun MyAppDrawer(
         DrawerItem("Profile", "profile"),
         DrawerItem("Settings", "settings"),
         DrawerItem("Calc", "calc"),
-        DrawerItem("QR", "barcode")
+        DrawerItem("QR", "barcode"),
+        DrawerItem("Slider", "slider")
     )
     var selectedItem by remember { mutableStateOf("home") }
     // Drawer con navegación

@@ -9,18 +9,17 @@ import pe.upeu.navigationjpc.ui.presentation.screens.CalcScreen
 import pe.upeu.navigationjpc.ui.presentation.screens.HomeScreen
 import pe.upeu.navigationjpc.ui.presentation.screens.ProfileScreen
 import pe.upeu.navigationjpc.ui.presentation.screens.SettingsScreen
+import pe.upeu.navigationjpc.ui.presentation.screens.SliderScreen
+
 //Rutas
 @Composable
 fun NavigationHost(navController: NavHostController) {
     NavHost(navController, startDestination = "home") {
         composable("home") { HomeScreen() }
         composable("profile") { ProfileScreen() }
-<<<<<<< HEAD
-        composable("settings") { SettingsScreen() } //Aqui poner la calculadora y el qr
-=======
         composable("settings") { SettingsScreen() }
         composable("calc") { CalcScreen {} }
         composable("barcode") { BarcodeScanningScreen(navController) }
->>>>>>> dc496b4c28ed12fef9cf60458f5b736a20abca99
+        composable("slider") { SliderScreen() }
     }
 }
